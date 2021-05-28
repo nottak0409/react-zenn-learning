@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { fetchImages } from './api';
+
 function Loading() {
     return <p>Loading...</p>;
 }
@@ -45,6 +48,11 @@ function Gallery(props) {
 
 function Main() {
     const urls = null;
+    useEffect(() => {
+        fetchImages("shiba").then((urls) => {
+            console.log(urls);
+        });
+    }, []);
     return (
         <main>
             <section className="section">
